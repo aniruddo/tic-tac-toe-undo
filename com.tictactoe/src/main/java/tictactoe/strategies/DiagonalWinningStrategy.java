@@ -53,6 +53,24 @@ public class DiagonalWinningStrategy implements WinningStrategy {
 		return false;
 	}
 
+	@Override
+	public void handleUndo(Board board, Move lastMove) {
+		// TODO Auto-generated method stub
+		int row = lastMove.getCell().getRow();
+		int col = lastMove.getCell().getColumn();
+		Player player = lastMove.getPlayer();
+		int n = board.getDimension();
+		if (row == col) {
+			Map<Character, Integer> FirstDiaCountMap = diaMap.get(0);
+			FirstDiaCountMap.put(player.getSymbol(), FirstDiaCountMap.get(player.getSymbol()) - 1);			
+		}
+		if((n-1)-row==col || row-(n-1)==col) {
+			Map<Character, Integer> FirstDiaCountMap = diaMap.get(1);
+			FirstDiaCountMap.put(player.getSymbol(), FirstDiaCountMap.get(player.getSymbol()) - 1);			
+		}
+		
+	}
+
 //	@Override
 //	public void handleUndo(Board board, Move lastMove) {
 //

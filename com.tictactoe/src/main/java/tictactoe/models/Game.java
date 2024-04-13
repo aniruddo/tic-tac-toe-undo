@@ -70,7 +70,7 @@ public class Game {
 	        cell.setCellState(CellState.EMPTY);
 
 	        for(WinningStrategy ws: this.winningStrategyList){
-//	            ws.handleUndo(board, lastMove);
+	            ws.handleUndo(board, lastMove);
 	        }
 
 	        if(nextPlayerIndex > 0){

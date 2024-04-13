@@ -32,6 +32,15 @@ public class ColWinningStretegy implements WinningStrategy {
 	        return false;
 	}
 
+	@Override
+	public void handleUndo(Board board, Move lastMove) {
+		// TODO Auto-generated method stub
+		int col = lastMove.getCell().getColumn();
+        Player player = lastMove.getPlayer();
+        Map<Character, Integer> colCountMap = colMaps.get(col);
+        colCountMap.put(player.getSymbol(), colCountMap.get(player.getSymbol()) - 1);
+	}
+
 //	@Override
 //	public void handleUndo(Board board, Move lastMove) {
 //		// TODO Auto-generated method stub

@@ -32,4 +32,14 @@ public class RowWinningStrategy implements WinningStrategy {
 		return false;
 	}
 
+	@Override
+	public void handleUndo(Board board, Move lastMove) {
+		// TODO Auto-generated method stub
+		int row = lastMove.getCell().getRow();
+		Player player = lastMove.getPlayer();
+		Map<Character, Integer> rowCountMap = rowMaps.get(row);
+		rowCountMap.put(player.getSymbol(), rowCountMap.get(player.getSymbol()) - 1);
+
+	}
+
 }
